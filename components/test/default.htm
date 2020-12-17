@@ -1,0 +1,12 @@
+<div>
+    <form wire:submit.prevent="saveContact">
+        <input type="text" wire:model="name">
+        {% if errors.has('name') %} <span class="error">{{ errors.get('name') | first }}</span> {% endif %}
+
+        <input type="text" wire:model="email">
+        {% if errors.has('email') %} <span class="error">{{ errors.get('email') | first }}</span> {% endif %}
+    </form>
+    <br/><br/>
+    Имя: {{ name }}<br/>Email: {{ email }}
+</div>
+
