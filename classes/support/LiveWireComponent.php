@@ -132,7 +132,6 @@ abstract class LiveWireComponent extends Component
         Livewire::dispatch('view:render', $view);
 
         $engine->endLivewireRendering();
-
-        return $view->render($this->params + $this->getPublicPropertiesDefinedBySubClass());
+        return $view->render(array_merge($this->params, $this->getPublicPropertiesDefinedBySubClass()));
     }
 }

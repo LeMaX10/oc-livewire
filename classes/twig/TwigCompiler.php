@@ -7,12 +7,21 @@ use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Template;
 
+/**
+ * Class TwigCompiler
+ * @package LeMaX10\LiveWire\Classes\Twig
+ */
 class TwigCompiler implements CompilerInterface
 {
     /**
      * @var Environment
      */
     protected $twig;
+
+    /**
+     * @var
+     */
+    protected $customDirectives;
 
     /**
      * Create a new instance of the Twig compiler.

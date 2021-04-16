@@ -16,6 +16,7 @@ use System\Classes\PluginBase;
  */
 class Plugin extends PluginBase
 {
+    public $elevated = true;
 
     /**
      * @return array|string[]
@@ -34,21 +35,14 @@ class Plugin extends PluginBase
     {
         parent::register();
 
+        $this->mergeConfigFrom(__DIR__ .'/config/livewire.php', 'livewire');
         $this->app->register(LivewireServiceProvider::class);
     }
 
     public function boot(): void
     {
         parent::boot();
-        $this->mergeConfigFrom(__DIR__ .'/config/livewire.php', 'livewire');
 
-        Livewire::component('test', Test::class);
-        Livewire::component('form', Form::class);
-//
-//        \Event::listen('cms.page.beforeDisplay',
-//            static function (\Cms\Classes\Controller $controller, string $url, $page) {
-//                dd($controller, $url, $page);
-//        });
     }
 
     /**

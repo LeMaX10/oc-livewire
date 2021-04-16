@@ -23,6 +23,6 @@ class LiveWireTwigDirectives
 
     public static function livewire($expression, array $params = [])
     {
-        return \Livewire\Livewire::mount($expression, $params)->dom;
+        return \Livewire\Livewire::mount($expression, (array) $params)->dom;
     }
 }
